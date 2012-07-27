@@ -93,13 +93,13 @@ class Tests_Auth_OpenID_MemStore extends Auth_OpenID_OpenIDStore {
 
     function storeAssociation($server_url, $assoc)
     {
-        $assocs =& $this->_getServerAssocs($server_url);
+        $assocs = $this->_getServerAssocs($server_url);
         $assocs->set($assoc);
     }
 
     function getAssociation($server_url, $handle=null)
     {
-        $assocs =& $this->_getServerAssocs($server_url);
+        $assocs = $this->_getServerAssocs($server_url);
         if ($handle === null) {
             return $assocs->best();
         } else {
@@ -109,7 +109,7 @@ class Tests_Auth_OpenID_MemStore extends Auth_OpenID_OpenIDStore {
 
     function removeAssociation($server_url, $handle)
     {
-        $assocs =& $this->_getServerAssocs($server_url);
+        $assocs = $this->_getServerAssocs($server_url);
         return $assocs->remove($handle);
     }
 

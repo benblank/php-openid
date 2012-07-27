@@ -225,7 +225,7 @@ class TestingReq extends Auth_OpenID_SRegRequest {
     function parseExtensionArgs($args)
     {
         global $__args_sentinel;
-        $tc =& __getTestCase();
+        $tc = __getTestCase();
         $tc->assertEquals($__args_sentinel, $args);
     }
 }

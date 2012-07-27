@@ -498,7 +498,7 @@ function getOpenIDStore()
                  'hostspec' => '<?php print $_SESSION['store_data']['host']; ?>'
                  );
 
-    $db =& DB::connect($dsn);
+    $db = DB::connect($dsn);
 
     if (PEAR::isError($db)) {
         return null;
@@ -527,7 +527,7 @@ function getOpenIDStore()
                  'database' => '<?php print $_SESSION['store_data']['database']; ?>'
                  );
 
-    $db =& DB::connect($dsn);
+    $db = DB::connect($dsn);
 
     if (PEAR::isError($db)) {
         return null;

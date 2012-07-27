@@ -472,7 +472,7 @@ class Tests_Auth_OpenID_Included_StoreTest extends Tests_Auth_OpenID_Store {
         $sql = sprintf("CREATE DATABASE %s", $temp_db_name);
 
         for ($failures = 0; $failures < $allowed_failures; $failures++) {
-            $template_db =& DB::connect($dsn);
+            $template_db = DB::connect($dsn);
 
             if (PEAR::isError($template_db)) {
                 $result =& $template_db;
@@ -507,7 +507,7 @@ class Tests_Auth_OpenID_Included_StoreTest extends Tests_Auth_OpenID_Store {
         // Disconnect from template1 and reconnect to the temporary
         // testing database.
         $dsn['database'] = $temp_db_name;
-        $db =& DB::connect($dsn);
+        $db = DB::connect($dsn);
 
         if (PEAR::isError($db)) {
             $this->fail("Temporary database connection failed " .
@@ -535,7 +535,7 @@ class Tests_Auth_OpenID_Included_StoreTest extends Tests_Auth_OpenID_Store {
         // Connect to template1 again so we can drop the temporary
         // database.
         $dsn['database'] = $connect_db_name;
-        $template_db =& DB::connect($dsn);
+        $template_db = DB::connect($dsn);
 
         if (PEAR::isError($template_db)) {
             $this->fail("Template database connection (to drop " .
@@ -580,7 +580,7 @@ class Tests_Auth_OpenID_Included_StoreTest extends Tests_Auth_OpenID_Store {
         }
 
         $dsn = 'sqlite:///' . urlencode($temp_dir) . '/php_openid_storetest.db';
-        $db =& DB::connect($dsn);
+        $db = DB::connect($dsn);
 
         if (PEAR::isError($db)) {
             $this->pass("SQLite database connection failed: " .
@@ -622,7 +622,7 @@ class Tests_Auth_OpenID_Included_StoreTest extends Tests_Auth_OpenID_Store {
                      'hostspec' => $_Auth_OpenID_db_test_host
                      );
 
-        $db =& DB::connect($dsn);
+        $db = DB::connect($dsn);
 
         if (PEAR::isError($db)) {
             print "MySQL database connection failed: " .
@@ -675,7 +675,7 @@ class Tests_Auth_OpenID_Included_StoreTest extends Tests_Auth_OpenID_Store {
                      'hostspec' => $_Auth_OpenID_db_test_host
                      );
 
-        $db =& MDB2::connect($dsn);
+        $db = MDB2::connect($dsn);
 
         if (PEAR::isError($db)) {
             print "MySQL database connection failed: " .
