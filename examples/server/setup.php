@@ -444,7 +444,7 @@ print "&lt;?php\n";
  * Set any extra include paths needed to use the library
  */
 set_include_path(get_include_path() . PATH_SEPARATOR . "<?php
-print $_SESSION['include_path'];
+print addslashes($_SESSION['include_path']);
 ?>");
 
 <?php } ?>
@@ -475,13 +475,13 @@ function getOpenIDStore()
     case "Filesystem":
 
         print "require_once \"Auth/OpenID/FileStore.php\";\n    ";
-        print "return new Auth_OpenID_FileStore(\"".$_SESSION['store_data']['fs_path']."\");\n";
+        print "return new Auth_OpenID_FileStore(\"".addslashes($_SESSION['store_data']['fs_path'])."\");\n";
         break;
 
     case "SQLite":
 
         print "require_once \"Auth/OpenID/SQLiteStore.php\";\n    ";
-        print "\$s = new Auth_OpenID_SQLiteStore(\"".$_SESSION['store_data']['sqlite_path']."\");\n    ";
+        print "\$s = new Auth_OpenID_SQLiteStore(\"".addslashes($_SESSION['store_data']['sqlite_path'])."\");\n    ";
         print "\$s->createTables();\n    ";
         print "return \$s;\n";
         break;
