@@ -468,6 +468,7 @@ function detect_fetcher($r, &$out)
         $out .= $r->p(implode(' ', $parts));
     } else {
         $ok = false;
+        $lnk = $r->link($fetch_url, $fetch_url);
         $out .= $r->p('Fetching URL ' . $lnk . ' failed!');
     }
 
